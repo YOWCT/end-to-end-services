@@ -1,3 +1,7 @@
 <section id="main">
     Main page.
+
+    {{ range (where .Site.RegularPages "Type" "departments") }}
+        <p><a href="/gc/{{ .File.BaseFileName }}/">{{ .Title }}</a></p>
+    {{ end }}
 </section>
