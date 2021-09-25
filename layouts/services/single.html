@@ -1,0 +1,18 @@
+{{ partial "head.html" . }}
+{{ partial "header.html" . }}
+
+<section id="main">
+   <div class="content-section-a">
+
+      <div class="container">
+        <div class="row">
+            <p>Service:</p>
+            <h2 class="section-heading">{{ .Title }}</h2>
+            {{ .Content }}
+        </div>
+    </div>
+
+  </div>
+
+</section>
+{{ partial "footer.html" . }}

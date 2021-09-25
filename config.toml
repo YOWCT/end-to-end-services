@@ -1,0 +1,6 @@
+baseURL = 'http://example.org/'
+languageCode = 'en-us'
+title = 'How many government services are available online end-to-end?'
+
+[permalinks]
+    departments = '/departments/gc/:filename/'
