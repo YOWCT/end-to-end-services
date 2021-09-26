@@ -20,3 +20,13 @@ body {
     font-weight: 500;
     line-height: 1.2;
 }
+
+.main-lead {
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+.main-lead strong {
+    font-weight: 800;
+}
