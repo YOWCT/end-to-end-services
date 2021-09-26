@@ -25,7 +25,7 @@
             <tbody>
                 {{ range (where .Site.RegularPages "Type" "departments") }}
                     <tr>
-                        <td><a href="/gc/{{ .File.BaseFileName }}/">{{ .Title }}</a></td>
+                        <td data-search="{{ .File.BaseFileName }} {{ .Title }}"><a href="/gc/{{ .File.BaseFileName }}/">{{ .Title }}</a></td>
                         <td>{{ .Params.servicesOnline }}</td>
                         <td>{{ .Params.servicesNotOnline }}</td>
                         <td>{{ mul 100 .Params.percentage }}%</td>
