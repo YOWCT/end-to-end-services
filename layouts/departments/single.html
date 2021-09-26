@@ -10,6 +10,23 @@
             <h2 class="section-heading">{{ .Title }}</h2>
             {{ .Content }}
         </div>
+    
+
+    
+        <div class="row">
+            <p>Service list:</p>
+
+            {{ $departmentAcronym := .File.BaseFileName }}
+            
+            {{ range (where .Site.RegularPages "Type" "services") }}
+
+                {{ if eq $departmentAcronym .Params.departmentAcronym }}
+                <p><a href="/gc/{{ $departmentAcronym }}/{{ .File.BaseFileName }}/">{{ .Title }}</a></p>
+                {{ end }}
+
+            {{ end }}
+
+        </div>
     </div>
 
   </div>
