@@ -1,14 +1,16 @@
-<section id="main">
+<main role="main" class="flex-shrink-0" id="main">
 
     <div class="container">
-        <div class="row">
-    Main page.
-
-    {{ range (where .Site.RegularPages "Type" "departments") }}
-        <p><a href="/gc/{{ .File.BaseFileName }}/">{{ .Title }}</a></p>
-    {{ end }}
-
-        </div>
-    </div>
+        Main page.
     
-</section>
+        <ul>
+            {{ range (where .Site.RegularPages "Type" "departments") }}
+                <li><a href="/gc/{{ .File.BaseFileName }}/">{{ .Title }}</a></li>
+            {{ end }}
+        </ul>
+    
+
+
+    </div>
+
+</main>

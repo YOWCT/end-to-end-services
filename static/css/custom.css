@@ -1,0 +1,22 @@
+/* Custom CSS for the
+"End to end services" YOWCT site */
+
+body {
+    /* FEFAE0 */
+    background-color: #f4f3eb;
+    color: #212529;
+}
+
+/* a, a:link, a:visited {
+    color: #283618;
+} */
+
+.site-title a, .site-title a:link, .site-title a:visited {
+    color: #212529;
+}
+
+.site-title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+}

@@ -1,13 +1,13 @@
-<!DOCTYPE html>
-<html>
-<head>
-
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
 	<meta name="description" content="{{ .Site.Params.description}}"> 
-    
 	<meta name="author" content="{{ .Site.Params.author | default .Site.Author }}">  
+
     <!-- <base href="{{ .Site.BaseURL }}"> -->
     <title>{{ if .Title }}{{ .Title }} – {{ .Site.Title }}{{ else }}{{ .Site.Title }}{{ end }}</title>
 
@@ -16,12 +16,12 @@
 
     <!-- Bootstrap Core CSS -->
     <!-- <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"> -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="css/dataTables.bootstrap.min.css">
 
     <!-- Custom CSS -->
-    <link href="css/landing-page.css" rel="stylesheet">
+    <link href="/css/custom.css" rel="stylesheet">
 
 
 </head>
-<body>
+<body class="d-flex flex-column h-100">
