@@ -179,14 +179,17 @@ function calculateOrganizationPercentages(&$organizations, &$globalTotals) {
 
 }
 
+function fillTemplate($inputArray, $templateText) {
+    foreach($inputArray as $key => $value) {
+        $templateText = str_replace('$' . $key, $value, $templateText);
+    }
+    return $templateText;
+}
+
 function exportOrganizations($organizations, $departmentTemplate, $departmentsOutputDir) {
     foreach($organizations as $acronym => $organization) {
         if($acronym) {
-            $templateText = $departmentTemplate;
-            foreach($organization as $key => $value) {
-                $templateText = str_replace('$' . $key, $value, $templateText);
-            }
-            
+            $templateText = fillTemplate($organization, $departmentTemplate);            
             file_put_contents($departmentsOutputDir . $acronym . '.md', $templateText);
             
         }        
