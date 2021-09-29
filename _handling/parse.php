@@ -1,10 +1,21 @@
 <?php
 
+include('templates.php');
+
 $handlingRootDir = pathinfo(__FILE__, PATHINFO_DIRNAME);
 $serviceInventoryCsv = $handlingRootDir . '/inputCSV/service_inventory.csv';
 
 $organizationsCsv = $handlingRootDir . '/overrideCSV/organizations.csv';
 $organizationNameNormalizationCsv = $handlingRootDir . '/overrideCSV/organization_name_normalization.csv';
+
+$departmentsOutputDir = $handlingRootDir . '/../content/departments/gc/';
+$servicesOutputDir = $handlingRootDir . '/../content/services/gc/';
+
+$globalTotals = [
+    'servicesOnline' => 0,
+    'servicesNotOnline' => 0,
+    'percentage' => 0,
+];
 
 $targetFiscalYear = '2019-2020';
 
@@ -46,6 +57,9 @@ function filterInventoryArray($inventoryArray, $targetFiscalYear) {
         // Only include items from the same fiscal year, that are externally-facing:
         if(($item[$fyKey] == $targetFiscalYear) && (strpos($item['external_internal'], 'extern') !== false)) {
             $outputArray[] = $item;
+        }
+        else {
+            // echo "Skipping " . $item[$fyKey] . " with " . $item['external_internal'] . "\n";
         }
     }
 
@@ -132,7 +146,6 @@ function addServiceMetadata(&$item, &$organizations, $organizationNameNormalizat
         $item['meta_end_to_end'] = 0;
         $organizations[$departmentAcronym]['servicesNotOnline'] += 1;
     }
-   
 
 }
 
@@ -142,10 +155,15 @@ function addAllServiceMetadata(&$inputArray, &$organizations, $organizationNameN
     }
 }
 
-function calculateOrganizationPercentages(&$organizations) {
+function calculateOrganizationPercentages(&$organizations, &$globalTotals) {
     foreach($organizations as &$organization) {
-        if(isset($organization['servicesOnline']) && isset($organization['servicesNotOnline']) && $organization['servicesOnline'] && $organization['servicesNotOnline']) {
+        if(isset($organization['servicesOnline']) && isset($organization['servicesNotOnline'])) {
             $organization['percentage'] = round($organization['servicesOnline'] / ($organization['servicesOnline'] + $organization['servicesNotOnline']), 2);
+            $organization['noData'] = 0;
+
+            $globalTotals['servicesOnline'] += $organization['servicesOnline'];
+            $globalTotals['servicesNotOnline'] += $organization['servicesNotOnline'];
+
         }
         else {
             $organization['servicesOnline'] = 0;
@@ -156,8 +174,24 @@ function calculateOrganizationPercentages(&$organizations) {
         }
         
     }
+
+    $globalTotals['percentage'] = round($globalTotals['servicesOnline'] / ($globalTotals['servicesOnline'] + $globalTotals['servicesNotOnline']), 2);
+
 }
 
+function exportOrganizations($organizations, $departmentTemplate, $departmentsOutputDir) {
+    foreach($organizations as $acronym => $organization) {
+        if($acronym) {
+            $templateText = $departmentTemplate;
+            foreach($organization as $key => $value) {
+                $templateText = str_replace('$' . $key, $value, $templateText);
+            }
+            
+            file_put_contents($departmentsOutputDir . $acronym . '.md', $templateText);
+            
+        }        
+    }
+}
 
 
 // Script run below:
@@ -184,7 +218,7 @@ echo "Entries from " . $targetFiscalYear . " that are externally facing: " . cou
 
 // exit(var_export($filteredInventoryArray[0]));
 
-echo "TEST: \n";
+// echo "TEST: \n";
 // var_export(findNested($organizations,'name_en','Women and Gender Equality Canada'));
 // var_export(findNested($organizationNameNormalization,'name','Department of Indigenous Services'));
 
@@ -192,10 +226,14 @@ echo "TEST: \n";
 addAllServiceMetadata($filteredInventoryArray, $organizations, $organizationNameNormalization);
 
 // Calculate percentages for each organization
-calculateOrganizationPercentages($organizations);
+calculateOrganizationPercentages($organizations, $globalTotals);
 
-var_export($filteredInventoryArray[0]);
+// Export organization files
+exportOrganizations($organizations, $departmentTemplate, $departmentsOutputDir);
 
-var_export($organizations['tc']);
+// var_export($filteredInventoryArray[0]);
+// var_export($organizations['tc']);
+echo "Global totals: \n";
+var_export($globalTotals);
 
-echo "Finished. \n";
+echo "\nFinished. \n";
