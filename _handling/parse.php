@@ -73,9 +73,21 @@ function findNested($inputArray, $key, $needle) {
 
 
 
-function addServiceMetadata(&$item, $organizations, $organizationNameNormalization) {
+function addServiceMetadata(&$item, &$organizations, $organizationNameNormalization) {
     $departmentAcronym = '';
     $departmentData = '';
+    $isEndToEnd = true;
+
+    $endToEndColumns = [
+        'e_registration',
+        'e_authentication',
+        'e_application',
+        'e_decision',
+        'e_issuance',
+        'e_feedback',
+    ];
+
+
     $nameNormalization = findNested($organizationNameNormalization,'name',$item['department_name_en']);
 
     if($nameNormalization) {
@@ -84,23 +96,71 @@ function addServiceMetadata(&$item, $organizations, $organizationNameNormalizati
     }
     else {
         $departmentData = findNested($organizations,'name_en',$item['department_name_en']);
+
+        if(! $departmentData) {
+            echo "Error: could not find " . $item['department_name_en'];
+            return;
+        }
+
         $departmentAcronym = $departmentData['acronym_en'];
     }
 
-    // echo "Departmental data: \n";
-    // var_export($departmentData);
-    // exit();
-
+    // Set (normalized) departmental name and acronyms:
     $item['meta_department_name_en'] = $departmentData['name_en'];
     $item['meta_department_acronym_en'] = $departmentData['acronym_en'];
 
+    // Check if any of the e-services columns are set to "N"
+    foreach($endToEndColumns as $column) {
+        if($item[$column] === 'N') {
+            $isEndToEnd = false;
+        }
+    }    
+
+    // Initialize departmental metadata if it hasn't been done yet
+    if(! isset($organizations[$departmentAcronym]['servicesOnline'])) {
+        $organizations[$departmentAcronym]['servicesOnline'] = 0;
+    }
+    if(! isset($organizations[$departmentAcronym]['servicesNotOnline'])) {
+        $organizations[$departmentAcronym]['servicesNotOnline'] = 0;
+    }
+
+    if($isEndToEnd) {
+        $item['meta_end_to_end'] = 1;
+        $organizations[$departmentAcronym]['servicesOnline'] += 1;
+    }
+    else {
+        $item['meta_end_to_end'] = 0;
+        $organizations[$departmentAcronym]['servicesNotOnline'] += 1;
+    }
+   
+
 }
 
-function addAllServiceMetadata(&$inputArray, $organizations, $organizationNameNormalization) {
+function addAllServiceMetadata(&$inputArray, &$organizations, $organizationNameNormalization) {
     foreach($inputArray as &$item) {
         addServiceMetadata($item, $organizations, $organizationNameNormalization);
     }
 }
+
+function calculateOrganizationPercentages(&$organizations) {
+    foreach($organizations as &$organization) {
+        if(isset($organization['servicesOnline']) && isset($organization['servicesNotOnline']) && $organization['servicesOnline'] && $organization['servicesNotOnline']) {
+            $organization['percentage'] = round($organization['servicesOnline'] / ($organization['servicesOnline'] + $organization['servicesNotOnline']), 2);
+        }
+        else {
+            $organization['servicesOnline'] = 0;
+            $organization['servicesNotOnline'] = 0;
+            $organization['percentage'] = 0;
+            $organization['noData'] = 1;
+
+        }
+        
+    }
+}
+
+
+
+// Script run below:
 
 echo "Loading " . $organizationsCsv . "\n";
 
@@ -128,8 +188,14 @@ echo "TEST: \n";
 // var_export(findNested($organizations,'name_en','Women and Gender Equality Canada'));
 // var_export(findNested($organizationNameNormalization,'name','Department of Indigenous Services'));
 
+// Calculate metadata updates to each service entry
 addAllServiceMetadata($filteredInventoryArray, $organizations, $organizationNameNormalization);
 
-exit(var_export($filteredInventoryArray[0]));
+// Calculate percentages for each organization
+calculateOrganizationPercentages($organizations);
+
+var_export($filteredInventoryArray[0]);
+
+var_export($organizations['tc']);
 
 echo "Finished. \n";
