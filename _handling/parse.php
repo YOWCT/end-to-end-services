@@ -142,10 +142,14 @@ function addServiceMetadata(&$item, &$organizations, $organizationNameNormalizat
 
     if($isEndToEnd) {
         $item['meta_end_to_end'] = 1;
+        $item['meta_status_text'] = "is available";
+
         $organizations[$departmentAcronym]['servicesOnline'] += 1;
     }
     else {
         $item['meta_end_to_end'] = 0;
+        $item['meta_status_text'] = "is not available";
+
         $organizations[$departmentAcronym]['servicesNotOnline'] += 1;
     }
 
@@ -168,6 +172,7 @@ function calculateOrganizationPercentages(&$organizations, &$globalTotals) {
     foreach($organizations as &$organization) {
         if(isset($organization['servicesOnline']) && isset($organization['servicesNotOnline'])) {
             $organization['percentage'] = round($organization['servicesOnline'] / ($organization['servicesOnline'] + $organization['servicesNotOnline']), 2);
+            $organization['percentRendered'] = round($organization['percentage'] * 100);
             $organization['noData'] = 0;
 
             $globalTotals['servicesOnline'] += $organization['servicesOnline'];
@@ -178,6 +183,7 @@ function calculateOrganizationPercentages(&$organizations, &$globalTotals) {
             $organization['servicesOnline'] = 0;
             $organization['servicesNotOnline'] = 0;
             $organization['percentage'] = 0;
+            $organization['percentRendered'] = 0;
             $organization['noData'] = 1;
 
         }
