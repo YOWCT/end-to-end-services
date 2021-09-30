@@ -21,19 +21,21 @@ table.table th {
 }
 
 .site-title {
-    font-size: 1.5rem;
+    font-size: 3.5rem;
     font-weight: 500;
     line-height: 1.2;
 }
 
-.main-lead {
-    font-size: 1.5rem;
-    font-weight: 500;
+.main-lead-percent {
+    font-size: 3.5rem;
+    /* font-weight: 500; */
     line-height: 1.2;
 }
 
-.main-lead strong {
-    font-weight: 800;
+.main-lead-description {
+    font-size: 1.5rem;
+    line-height: 1.2;
+    margin-top: 0.9rem;
 }
 
 /* main p {
