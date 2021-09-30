@@ -33,4 +33,4 @@ This is a volunteer project from [Ottawa Civic Tech](https://ottawacivictech.ca/
 
 Learn more about it was built by [visiting the GitHub repository](https://github.com/YOWCT/end-to-end-services).
 
-[Back to the list of departments and agencies](#departments).
+[Back to the list of departments and agencies](#departments)
