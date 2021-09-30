@@ -21,7 +21,7 @@ table.table th {
 }
 
 .site-title {
-    font-size: 3.5rem;
+    font-size: 1.5rem;
     font-weight: 500;
     line-height: 1.2;
 }
@@ -36,6 +36,12 @@ table.table th {
     font-size: 1.5rem;
     line-height: 1.2;
     margin-top: 0.9rem;
+}
+
+.department-lead-description {
+    font-size: 1.4rem;
+    line-height: 1.2;
+    margin-top: 0.3rem;
 }
 
 /* main p {

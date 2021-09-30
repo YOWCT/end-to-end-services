@@ -22,9 +22,21 @@
         {{ if .Params.noData}}
 
         {{ else }}
-            <p>
-                {{ .Title }} provides <b>{{ add .Params.servicesOnline .Params.servicesNotOnline }}</b> services. <b>{{ .Params.servicesOnline }}</b> are available online ({{ math.Round (mul 100 .Params.percentage) }}%), and <b>{{ .Params.servicesNotOnline }}</b> are not available online.
-            </p>
+            
+            
+            <div class="row mt-4 mb-4">
+                <div class="col-md-2 themed-grid-col">
+                    <p class="main-lead-percent badge {{ if lt .Params.percentage 0.3 -}} badge-danger {{ else }} {{ if lt .Params.percentage 0.6 -}} badge-warning {{ else }} badge-success {{ end }} {{- end }}">{{ math.Round (mul 100 .Params.percentage) }}%</p>
+                </div>
+                <div class="col-md-6 themed-grid-col">
+                    
+                    <p class="department-lead-description">
+                        {{ .Title }} provides <b>{{ add .Params.servicesOnline .Params.servicesNotOnline }}</b> services. <b>{{ .Params.servicesOnline }}</b> are available online, and <b>{{ .Params.servicesNotOnline }}</b> are not available online.
+                    </p>
+                </div>
+                <div class="col-md-2 themed-grid-col"></div>
+            </div>
+            
         {{ end }}
         {{ .Content }}
     
