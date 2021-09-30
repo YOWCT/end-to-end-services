@@ -4,6 +4,10 @@ echo "Templates! \n";
 
 $departmentTemplate = '---
 title: "$name_en"
+nameEn: "$name_en"
+nameFr: "$name_fr"
+urlEn: "$url_en"
+urlFr: "$url_fr"
 url: "/gc/$acronym_en/"
 servicesOnline: $servicesOnline
 servicesNotOnline: $servicesNotOnline

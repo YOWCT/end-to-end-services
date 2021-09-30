@@ -147,6 +147,13 @@ function addServiceMetadata(&$item, &$organizations, $organizationNameNormalizat
         $organizations[$departmentAcronym]['servicesNotOnline'] += 1;
     }
 
+    // Misc. data cleanup 
+    $item['service_description_en'] = str_replace('"', '\\"', $item['service_description_en']);
+    $item['service_name_en'] = str_replace(' - ', ' – ', $item['service_name_en']);
+
+    // In case departments put multiple URLs, separated by comments
+    $item['service_url_en'] = explode(',', $item['service_url_en'])[0];
+
 }
 
 function addAllServiceMetadata(&$inputArray, &$organizations, $organizationNameNormalization) {
