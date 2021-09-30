@@ -1,5 +1,6 @@
 ---
 title: "Patented Medicine Prices Review Board Canada"
+summary: "100% of the services provided by Patented Medicine Prices Review Board Canada are available end-to-end online. 1 are available online, and 0 are not available online."
 nameEn: "Patented Medicine Prices Review Board Canada"
 nameFr: "Conseil d'examen du prix des médicaments brevetés"
 urlEn: "http://pmprb-cepmb.gc.ca/home"

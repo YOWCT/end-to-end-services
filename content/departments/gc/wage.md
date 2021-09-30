@@ -1,5 +1,6 @@
 ---
 title: "Women and Gender Equality Canada"
+summary: "0% of the services provided by Women and Gender Equality Canada are available end-to-end online. 0 are available online, and 3 are not available online."
 nameEn: "Women and Gender Equality Canada"
 nameFr: "Femmes et Égalité des genres Canada"
 urlEn: "https://women-gender-equality.canada.ca/en.html"

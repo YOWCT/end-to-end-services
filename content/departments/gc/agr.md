@@ -1,5 +1,6 @@
 ---
 title: "Agriculture and Agri-Food Canada"
+summary: "26% of the services provided by Agriculture and Agri-Food Canada are available end-to-end online. 9 are available online, and 25 are not available online."
 nameEn: "Agriculture and Agri-Food Canada"
 nameFr: "Agriculture et Agroalimentaire Canada"
 urlEn: "http://www.agr.gc.ca/index_e.php"

@@ -1,5 +1,6 @@
 ---
 title: "Public Service Commission of Canada"
+summary: "82% of the services provided by Public Service Commission of Canada are available end-to-end online. 9 are available online, and 2 are not available online."
 nameEn: "Public Service Commission of Canada"
 nameFr: "Commission de la fonction publique du Canada"
 urlEn: "http://www.psc-cfp.gc.ca/index-eng.htm"

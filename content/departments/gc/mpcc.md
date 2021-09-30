@@ -1,5 +1,6 @@
 ---
 title: "Military Police Complaints Commission of Canada"
+summary: "0% of the services provided by Military Police Complaints Commission of Canada are available end-to-end online. 0 are available online, and 2 are not available online."
 nameEn: "Military Police Complaints Commission of Canada"
 nameFr: "Commission d’examen des plaintes concernant la police militaire
 du Canada"

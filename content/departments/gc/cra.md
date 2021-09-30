@@ -1,5 +1,6 @@
 ---
 title: "Canada Revenue Agency"
+summary: "43% of the services provided by Canada Revenue Agency are available end-to-end online. 10 are available online, and 13 are not available online."
 nameEn: "Canada Revenue Agency"
 nameFr: "Agence du revenu du Canada"
 urlEn: "http://www.cra-arc.gc.ca/menu-eng.html"

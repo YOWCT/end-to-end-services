@@ -1,5 +1,6 @@
 ---
 title: "Canadian Northern Economic Development Agency"
+summary: "50% of the services provided by Canadian Northern Economic Development Agency are available end-to-end online. 1 are available online, and 1 are not available online."
 nameEn: "Canadian Northern Economic Development Agency"
 nameFr: "Agence canadienne de développement économique du Nord"
 urlEn: "http://www.north.gc.ca/index-eng.asp"

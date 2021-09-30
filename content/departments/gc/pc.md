@@ -1,5 +1,6 @@
 ---
 title: "Parks Canada"
+summary: "0% of the services provided by Parks Canada are available end-to-end online. 0 are available online, and 11 are not available online."
 nameEn: "Parks Canada"
 nameFr: "Parcs Canada"
 urlEn: "http://www.pc.gc.ca/eng/index.aspx"

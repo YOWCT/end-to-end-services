@@ -1,5 +1,6 @@
 ---
 title: "Canadian Grain Commission"
+summary: "15% of the services provided by Canadian Grain Commission are available end-to-end online. 2 are available online, and 11 are not available online."
 nameEn: "Canadian Grain Commission"
 nameFr: "Commission canadienne des grains"
 urlEn: "https://www.grainscanada.gc.ca/en/"

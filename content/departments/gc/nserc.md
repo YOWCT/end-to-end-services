@@ -1,5 +1,6 @@
 ---
 title: "Natural Sciences and Engineering Research Council of Canada"
+summary: "100% of the services provided by Natural Sciences and Engineering Research Council of Canada are available end-to-end online. 6 are available online, and 0 are not available online."
 nameEn: "Natural Sciences and Engineering Research Council of Canada"
 nameFr: "Conseil de recherches en sciences naturelles et en génie du Canada"
 urlEn: "https://www.nserc-crsng.gc.ca/index_eng.asp"

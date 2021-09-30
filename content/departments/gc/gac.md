@@ -1,5 +1,6 @@
 ---
 title: "Global Affairs Canada"
+summary: "55% of the services provided by Global Affairs Canada are available end-to-end online. 12 are available online, and 10 are not available online."
 nameEn: "Global Affairs Canada"
 nameFr: "Affaires mondiale Canada"
 urlEn: "http://www.international.gc.ca/"
