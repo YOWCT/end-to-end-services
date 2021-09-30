@@ -3,11 +3,11 @@
     <div class="container">
         <div class="row mt-4 mb-4">
             <div class="col-md-2 themed-grid-col">
-                <p class="main-lead-percent badge badge-warning">45%</p>
+                <p class="main-lead-percent badge {{ if lt .Site.Data.globalTotals.percentage 0.3 -}} badge-danger {{ else }} {{ if lt .Site.Data.globalTotals.percentage 0.6 -}} badge-warning {{ else }} badge-success {{ end }} {{- end }}">{{ math.Round (mul 100 .Site.Data.globalTotals.percentage) }}%</p>
             </div>
             <div class="col-md-6 themed-grid-col">
                 
-                <p class="main-lead-description"><b>500</b> of the <b>1117</b> externally-facing services in the GC Service Inventory are online from end-to-end.</p>
+                <p class="main-lead-description"><b>{{ .Site.Data.globalTotals.servicesOnline }}</b> of the <b>{{ add .Site.Data.globalTotals.servicesOnline .Site.Data.globalTotals.servicesNotOnline }}</b> externally-facing services in the GC Service Inventory are online from end-to-end.</p>
             </div>
             <div class="col-md-2 themed-grid-col"></div>
         </div>

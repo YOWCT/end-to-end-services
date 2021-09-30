@@ -11,6 +11,8 @@ $organizationNameNormalizationCsv = $handlingRootDir . '/overrideCSV/organizatio
 $departmentsOutputDir = $handlingRootDir . '/../content/departments/gc/';
 $servicesOutputDir = $handlingRootDir . '/../content/services/gc/';
 
+$globalTotalsPath = $handlingRootDir . '/../data/globalTotals.json';
+
 $globalTotals = [
     'servicesOnline' => 0,
     'servicesNotOnline' => 0,
@@ -224,6 +226,10 @@ function exportServices($servicesArray, $servicesTemplate, $servicesOutputDir) {
     }
 }
 
+function exportGlobalTotals($globalTotals, $globalTotalsPath) {
+    file_put_contents($globalTotalsPath, json_encode($globalTotals, JSON_PRETTY_PRINT));
+}
+
 
 // Script run below:
 
@@ -264,6 +270,9 @@ exportOrganizations($organizations, $departmentTemplate, $departmentsOutputDir);
 
 // Export service files
 exportServices($filteredInventoryArray, $servicesTemplate, $servicesOutputDir);
+
+// Export global totals into a data file:
+exportGlobalTotals($globalTotals, $globalTotalsPath);
 
 // var_export($filteredInventoryArray[0]);
 // var_export($organizations['tc']);
