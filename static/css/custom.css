@@ -5,6 +5,11 @@ body {
     /* FEFAE0 */
     background-color: #f4f3eb;
     color: #212529;
+    font-size: 18px;
+}
+
+table.table th {
+    font-size: 16px;
 }
 
 /* a, a:link, a:visited {
@@ -29,4 +34,16 @@ body {
 
 .main-lead strong {
     font-weight: 800;
+}
+
+/* main p {
+    font-size: 1.2rem;
+} */
+
+.intro-header {
+    border-bottom: 1px solid #e2dfca;
+}
+
+footer {
+    border-top: 1px solid #e2dfca;
 }

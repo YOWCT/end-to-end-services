@@ -1,12 +1,47 @@
 {{ partial "head.html" . }}
 {{ partial "header.html" . }}
 
+<section class="breadcrumbs">
+    <div class="container">
+        <ul class="list-inline">
+            <li class="list-inline-item"><a href="/">All departments and agencies</a> &nbsp;&nbsp;&raquo;</li>
+            <li class="list-inline-item"><a href="/gc/{{ .Params.departmentAcronym }}/">{{ .Params.department }}</a></li>
+        </ul>
+    </div>
+</section>
+
 <main role="main" class="flex-shrink-0" id="main">
 
     <div class="container">
-        <p><a href="/gc/{{ .Params.departmentAcronym }}/">{{ .Params.department }}</a></p>
-        <p>Service:</p>
-        <h2 class="section-heading">{{ .Title }}</h2>
+        
+        <h1 class="section-heading">{{ .Title }}</h1>
+
+        {{ if .Params.onlineEndtoEnd }}
+            <div class="alert alert-success font-weight-bold" role="alert">
+                Available end-to-end online
+            </div>
+        {{ else }}
+            <div class="alert alert-danger font-weight-bold" role="alert">
+                Not available end-to-end online
+            </div>
+        {{ end }}
+
+        <p>
+            <a href="https://open.canada.ca/chart/si/index-en.html?{{ .Params.serviceId }}" target="_blank" class="btn btn-primary">View service inventory entry</a>
+            {{ if .Params.serviceUrl }}
+            <a href="{{ .Params.serviceUrl }}" target="_blank" class="btn btn-primary">Visit service website</a>
+            {{ end }}
+        </p>
+
+        <p>
+            {{ .Params.serviceDescription }}
+
+            {{ if .Params.programDescription }}
+                ({{ .Params.programDescription }}, {{ .Params.department }}.)
+            {{ end }}
+        </p>
+
+        
         
         {{ .Content }}
 
