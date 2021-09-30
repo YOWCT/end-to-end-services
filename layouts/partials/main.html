@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row mt-4 mb-4">
             <div class="col-md-2 themed-grid-col">
-                <p class="main-lead-percent badge badge-success">45%</p>
+                <p class="main-lead-percent badge badge-warning">45%</p>
             </div>
             <div class="col-md-6 themed-grid-col">
                 
@@ -34,7 +34,7 @@
                         <td data-search="{{ .File.BaseFileName }} {{ .Title }}"><a href="/gc/{{ .File.BaseFileName }}/">{{ .Title }}</a></td>
                         <td>{{ .Params.servicesOnline }}</td>
                         <td>{{ .Params.servicesNotOnline }}</td>
-                        <td>{{ math.Round (mul 100 .Params.percentage) }}%</td>
+                        <td><span class="badge {{ if lt .Params.percentage 0.3 -}} badge-danger {{ else }} {{ if lt .Params.percentage 0.6 -}} badge-warning {{ else }} badge-success {{ end }} {{- end }}">{{ math.Round (mul 100 .Params.percentage) }}%</span></td>
                     </tr>
                     {{- end }}
                 {{ end }}
