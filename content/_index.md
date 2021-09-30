@@ -7,7 +7,7 @@ In 2020, the federal Treasury Board Secretariat published [an open data set of G
 
 ### What are "online end-to-end services"?
 
-Services that are available online "end-to-end" are services that can be fully completed via the internet, without requiring in-person, mail, phone, or fax-based interactions. 
+Services that are available online "end-to-end" are services that can be **fully completed via the internet** from start to finish, without requiring any in-person, mail, phone, or fax-based interactions. 
 
 Online end-to-end services are useful because they can be completed any time of day, from home, from work, or on the road. They're particularly useful to vulnerable or isolated communities who might not be able to access in-person services, and they're typically faster to complete than mail, phone, or fax-based services.
 
@@ -15,11 +15,11 @@ In 2018, the [Digital Industries Economic Strategy Table](https://www.ic.gc.ca/e
 
 ### About this analysis
 
-This website uses the [GC Service Inventory data set](https://open.canada.ca/data/en/dataset/3ac0d080-6149-499a-8b06-7ce5f00ec56c) to indicate how many federal government services are available online end-to-end. The complete data set includes entries from 2017-2018, 2018-2019, and 2019-2020. This website uses the 2019-2020 data since it's the most recent. The service inventory also includes some internal-facing services (or enterprise services provided by a department to other departments). Only public-facing services are included in the analysis here.
+This website uses the [GC Service Inventory data set](https://open.canada.ca/data/en/dataset/3ac0d080-6149-499a-8b06-7ce5f00ec56c) to indicate how many federal government services are available online end-to-end. The complete data set includes entries from 2017-2018, 2018-2019, and 2019-2020. This website uses the **2019-2020 data** since it's the most recent. The service inventory also includes some internal-facing services (or enterprise services provided by a department to other departments). Only **public-facing services** are included in the analysis here.
 
 For each service, the GC Service Inventory includes six categories related to online interactions (registering online, authenticating online, applying for the service online, being informed of a decision online, being issued documentation online, and providing feedback online). Not all categories are applicable to each service, and so for each of the six categories, a service can have a value of "yes", "no", or "not applicable". 
 
-In the analysis on this website, services are considered online end-to-end if each of the six categories are either "yes" or "not applicable". (A service with at least one category of "no" is considered not online end-to-end.)
+In the analysis on this website, services are considered online end-to-end **if each of the six categories are either "yes" or "not applicable"**. (A service with at least one category of "no" is considered not online end-to-end.)
 
 Entries for each service include links to the [Open Government Service Inventory website](https://search.open.canada.ca/service/), where you can read more about each service and see related performance data.
 
