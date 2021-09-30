@@ -1,6 +1,8 @@
-baseURL = 'http://example.org/'
+baseURL = 'https://end-to-end-services.github.io/'
 languageCode = 'en-us'
 title = 'How many government services are available online end-to-end?'
 
 [permalinks]
     departments = '/departments/gc/:filename/'
+
+googleAnalytics = 'UA-209091243-1'
