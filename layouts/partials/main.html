@@ -26,18 +26,15 @@
             </thead>
             <tbody>
                 {{ range (where .Site.RegularPages "Type" "departments") }}
+                    {{ if .Params.noData -}}
+                    {{ else }}
                     <tr>
                         <td data-search="{{ .File.BaseFileName }} {{ .Title }}"><a href="/gc/{{ .File.BaseFileName }}/">{{ .Title }}</a></td>
-                        {{ if .Params.noData -}}
-                        <td data-order="0"><em class="no-data-available">No data available</em></td>
-                        <td data-order="0"></td>
-                        <td data-order="0"></td>
-                        {{ else }}
                         <td>{{ .Params.servicesOnline }}</td>
                         <td>{{ .Params.servicesNotOnline }}</td>
                         <td>{{ math.Round (mul 100 .Params.percentage) }}%</td>
-                        {{- end }}
                     </tr>
+                    {{- end }}
                 {{ end }}
                 
             </tbody>
