@@ -179,6 +179,7 @@ function calculateOrganizationPercentages(&$organizations, &$globalTotals) {
 
 }
 
+// Re-usable template filler function
 function fillTemplate($inputArray, $templateText) {
     foreach($inputArray as $key => $value) {
         $templateText = str_replace('$' . $key, $value, $templateText);
@@ -191,6 +192,26 @@ function exportOrganizations($organizations, $departmentTemplate, $departmentsOu
         if($acronym) {
             $templateText = fillTemplate($organization, $departmentTemplate);            
             file_put_contents($departmentsOutputDir . $acronym . '.md', $templateText);
+            
+        }        
+    }
+}
+
+function makeDirIfNecessary($directoryPath) {
+    // If the folder doesn't exist yet, create it:
+    // Thanks to http://stackoverflow.com/a/15075269/756641
+    if (! is_dir($directoryPath)) {
+        mkdir($directoryPath, 0755, true);
+    }
+}
+
+function exportServices($servicesArray, $servicesTemplate, $servicesOutputDir) {
+    foreach($servicesArray as $service) {
+        if($service['meta_department_acronym_en']) {
+            $templateText = fillTemplate($service, $servicesTemplate);
+            $destinationPath = $servicesOutputDir . $service['meta_department_acronym_en'] . '/';
+            makeDirIfNecessary($destinationPath);
+            file_put_contents($destinationPath . $service['service_id'] . '.md', $templateText);
             
         }        
     }
@@ -233,6 +254,9 @@ calculateOrganizationPercentages($organizations, $globalTotals);
 
 // Export organization files
 exportOrganizations($organizations, $departmentTemplate, $departmentsOutputDir);
+
+// Export service files
+exportServices($filteredInventoryArray, $servicesTemplate, $servicesOutputDir);
 
 // var_export($filteredInventoryArray[0]);
 // var_export($organizations['tc']);
