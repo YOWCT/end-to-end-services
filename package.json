@@ -1,0 +1,17 @@
+{
+    "name": "end-to-end-services",
+    "version": "1.0.0",
+    "description": "A data analysis of services in the GC Service Inventory",
+    "repository": "YOWCT/end-to-end-services",
+    "main": "index.js",
+    "scripts": {
+        "build": "npm run build:hugo",
+        "build:hugo": "hugo -D -v",
+        "deploy": "npm run build && gh-pages -d public -r git@github.com:end-to-end-services/end-to-end-services.github.io.git -b master"
+    },
+    "author": "",
+    "license": "MIT",
+    "devDependencies": {
+        "gh-pages": "^2.2.0"
+    }
+}
