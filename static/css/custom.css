@@ -39,18 +39,12 @@ main h3 {
 .main-lead-description {
     font-size: 1.5rem;
     line-height: 1.2;
-    margin-top: 0.9rem;
 }
 
 .department-lead-description {
     font-size: 1.4rem;
     line-height: 1.2;
-    margin-top: 0.3rem;
 }
-
-/* main p {
-    font-size: 1.2rem;
-} */
 
 .intro-header {
     border-bottom: 1px solid #e2dfca;

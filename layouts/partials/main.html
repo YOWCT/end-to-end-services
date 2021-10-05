@@ -5,11 +5,9 @@
             <div class="col-md-2 themed-grid-col">
                 <p class="main-lead-percent badge {{ if lt .Site.Data.globalTotals.percentage 0.3 -}} badge-danger {{ else }} {{ if lt .Site.Data.globalTotals.percentage 0.6 -}} badge-warning {{ else }} badge-success {{ end }} {{- end }}">{{ math.Round (mul 100 .Site.Data.globalTotals.percentage) }}%</p>
             </div>
-            <div class="col-md-6 themed-grid-col">
-                
-                <p class="main-lead-description"><b>{{ .Site.Data.globalTotals.servicesOnline }}</b> of the <b>{{ add .Site.Data.globalTotals.servicesOnline .Site.Data.globalTotals.servicesNotOnline }}</b> public-facing services <a href="#methodology">in the GC Service Inventory</a> are online from end-to-end.</p>
+            <div class="col-lg-6 themed-grid-col"> 
+                <p class="main-lead-description ml-xs-0 ml-lg-4 ml-xl-0 mt-lg-1 mt-xl-3"><b>{{ .Site.Data.globalTotals.servicesOnline }}</b> of the <b>{{ add .Site.Data.globalTotals.servicesOnline .Site.Data.globalTotals.servicesNotOnline }}</b> public-facing services <a href="#methodology">in the GC Service Inventory</a> are online from end-to-end.</p>
             </div>
-            <div class="col-md-2 themed-grid-col"></div>
         </div>
     </div>
 
