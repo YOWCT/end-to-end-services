@@ -28,7 +28,7 @@
                 <div class="col-md-2 themed-grid-col">
                     <p class="main-lead-percent badge {{ if lt .Params.percentage 0.3 -}} badge-danger {{ else }} {{ if lt .Params.percentage 0.6 -}} badge-warning {{ else }} badge-success {{ end }} {{- end }}">{{ math.Round (mul 100 .Params.percentage) }}%</p>
                 </div>
-                <div class="col-lg-6 themed-grid-col">
+                <div class="col-lg-7 col-xl-6 themed-grid-col">
                     <p class="department-lead-description ml-xs-0 ml-lg-4 ml-xl-0 mt-lg-1 mt-xl-2">
                         {{ .Title }} provides <b>{{ add .Params.servicesOnline .Params.servicesNotOnline }}</b> services. <b>{{ .Params.servicesOnline }}</b> are available online, and <b>{{ .Params.servicesNotOnline }}</b> are not available online.
                     </p>
