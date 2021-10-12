@@ -2,6 +2,9 @@ baseURL = 'https://end-to-end-services.github.io/'
 languageCode = 'en-us'
 title = 'How many government services are available online end-to-end?'
 
+[author]
+    name = 'Ottawa Civic Tech'
+
 [permalinks]
     departments = '/departments/gc/:filename/'
 
