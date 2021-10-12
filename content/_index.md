@@ -27,6 +27,8 @@ Entries for each service include links to the [Open Government Service Inventory
 
 Data in the GC Service Inventory is self-reported by departments. If services are missing or include incorrect details, these might be corrected in future updates to the service inventory. For questions about the inventory, you can [email the TBS service inventory team](mailto:ServiceDigital-ServicesNumerique@tbs-sct.gc.ca).
 
+If you notice an error for a specific service, you can click the "Suggest a correction" button displayed on that page. Note that changes suggested here won't be reflected in the official GC Service Inventory. 
+
 ### About this project
 
 This is a volunteer project from [Ottawa Civic Tech](https://ottawacivictech.ca/). It is not an official Government of Canada website. 
