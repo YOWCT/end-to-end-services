@@ -93,6 +93,7 @@ function addServiceMetadata(&$item, &$organizations, $organizationNameNormalizat
     $departmentAcronym = '';
     $departmentData = '';
     $isEndToEnd = true;
+    $atLeastOneColumnOnline = false;
 
     $endToEndColumns = [
         'e_registration',
@@ -131,6 +132,21 @@ function addServiceMetadata(&$item, &$organizations, $organizationNameNormalizat
             $isEndToEnd = false;
         }
     }    
+
+    // Make sure at least one of the e-services column is set to "Y"
+    foreach($endToEndColumns as $column) {
+        if($item[$column] === 'Y') {
+            $atLeastOneColumnOnline = true;
+        }
+    }
+
+    // To be end-to-end, none of the e-services columns should be set to "N" *and* at least one of the e-services columns should be set to "Y"
+    if($isEndToEnd && $atLeastOneColumnOnline) {
+        $isEndToEnd = true;
+    }
+    else {
+        $isEndToEnd = false;
+    }
 
     // Initialize departmental metadata if it hasn't been done yet
     if(! isset($organizations[$departmentAcronym]['servicesOnline'])) {
