@@ -9,3 +9,6 @@ title = 'How many government services are available online end-to-end?'
     departments = '/departments/gc/:filename/'
 
 googleAnalytics = 'UA-209091243-1'
+
+[markup.goldmark.renderer]
+    unsafe = true
