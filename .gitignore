@@ -71,3 +71,5 @@ resources/_gen
 
 # Hugo public build directory
 public/*
+
+.hugo_build.lock
